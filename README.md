@@ -16,7 +16,7 @@
 
 # Connection check
 
-- Uniq IP count on port 80 & 443:
+- IP count on port 80 & 443:
 
 `netstat -anp \| grep ':80\|:443' \| awk '{print $5}' \| cut -d: -f1 \| sort \| uniq -c \| sort -n \| wc -l`
 
