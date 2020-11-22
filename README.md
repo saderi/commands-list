@@ -4,7 +4,7 @@ allow specific port too all IP :
 
 
 
-| sdfsdfsdfsdf  | sdfsdfsdfsdf  |
+| Description | command  |
 | ------------ | ------------ |
 | Allow specific Port | `ufw allow zz`  |
 | Specific IP Addresses | `ufw allow from xxx.xxx.xxx.xxx`|
