@@ -23,3 +23,16 @@
 - Connection count on port 80 & 443:
 
 `netstat -an | grep ':80\|:443' | wc -l`
+
+
+# Add Swap Space on Ubuntu 18.04
+
+```
+fallocate -l 1G /swapfile
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+cp /etc/fstab /etc/fstab.bak
+echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
+```
+
