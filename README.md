@@ -36,3 +36,9 @@ cp /etc/fstab /etc/fstab.bak
 echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
 ```
 
+# PHP
+
+Find all php files and syntax check
+
+`find . -iname "*.php" -print0 | xargs -0 -n1 php -l`
+
