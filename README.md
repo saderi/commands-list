@@ -42,3 +42,9 @@ Find all php files and syntax check
 
 `find . -iname "*.php" -print0 | xargs -0 -n1 php -l`
 
+
+# System
+
+Delete files older than 5 days
+
+`find /tmp/* -type f -mtime +5 -exec rm -f {} +`
