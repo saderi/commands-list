@@ -38,9 +38,15 @@ echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
 
 # PHP
 
-Find all php files and syntax check
+- Find all php files and syntax check
 
 `find . -iname "*.php" -print0 | xargs -0 -n1 php -l`
+
+
+
+- Syntax check for laravel project
+
+`find .  \( -path ./vendor -o -path ./node_modules -o -path ./storage -o -path ./.git \) -prune -o -name '*.php'  -print0 | xargs -0 -n1 php -l > /dev/null`
 
 
 # System
