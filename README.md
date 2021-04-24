@@ -12,6 +12,11 @@
 | Allow Specific Port Ranges tcp | `ufw allow 5000:5009/tcp`  |
 | Allow Specific Port Ranges to to IP tcp | `ufw allow from 203.0.113.4 to any port 5000:5009 proto tcp`  |
 | Deny all connections from Specific IP | `ufw deny from 203.0.113.4`  |
+| ------------ | -------------- |
+| Deny all outgoing traffic | `ufw default deny outgoing` |
+| Allow all outgoing traffic | `ufw default allow outgoing` |
+| Deny all incoming traffic | `ufw default deny incoming` |
+| Allow all incoming traffic | `ufw default allow incoming` |
 
 
 # Connection check
