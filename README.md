@@ -59,3 +59,8 @@ echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
 Delete files older than 5 days
 
 `find /tmp/* -type f -mtime +5 -exec rm -f {} +`
+
+
+Delete files older than 5 minutes
+
+`find /tmp/* -type f -mmin +5 -exec rm -f {} +`
