@@ -33,7 +33,7 @@
 # Add Swap Space on Ubuntu 18.04
 
 ```
-fallocate -l 1G /swapfile
+fallocate -l 4G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
