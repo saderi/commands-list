@@ -60,7 +60,16 @@ Delete files older than 5 days
 
 `find /tmp/* -type f -mtime +5 -exec rm -f {} +`
 
-
 Delete files older than 5 minutes
 
 `find /tmp/* -type f -mmin +5 -exec rm -f {} +`
+
+chmod all folder to 755
+
+`find /var/www/html -type d -print0 | xargs -0 chmod 755`
+
+chmod all file to 644
+
+`find /var/www/html -type f -print0 | xargs -0 chmod 644`
+
+
