@@ -73,3 +73,18 @@ chmod all file to 644
 `find /var/www/html -type f -print0 | xargs -0 chmod 644`
 
 
+# Docker
+
+#### Copy Docker images from one host to another without using a repository
+
+Save the Docker image as a tar file:
+
+`docker save -o TAR_FILE_PATH_AND_NAME IMAGE_NAME:TAG`
+
+Copy your image to a new server and load the image into Docker:
+
+`docker load -i TAR_FILE_PATH_AND_NAME`
+
+
+
+
