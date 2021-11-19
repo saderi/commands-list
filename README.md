@@ -86,5 +86,9 @@ Copy your image to a new server and load the image into Docker:
 `docker load -i TAR_FILE_PATH_AND_NAME`
 
 
+# ETC
 
+Convert cuttent folder subtitles to UTF8 Encoding
+
+`for FILENAME in ./*.srt; do iconv -f cp1256 -t UTF-8 "${FILENAME}" -o "${FILENAME}"; done;`
 
