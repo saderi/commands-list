@@ -72,6 +72,14 @@ chmod all file to 644
 
 `find /var/www/html -type f -print0 | xargs -0 chmod 644`
 
+Singel line for loop
+
+`for i in {a..z}; do YOUR_COMMAND; done`
+
+or
+
+`for((i=1;i<=100;i+=5)); do echo "Hi ${i}"; done`
+
 
 # Docker
 
