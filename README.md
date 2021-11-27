@@ -100,3 +100,7 @@ Convert cuttent folder subtitles to UTF8 Encoding
 
 `for FILENAME in ./*.srt; do iconv -f cp1256 -t UTF-8 "${FILENAME}" -o "${FILENAME}"; done;`
 
+Merge / convert multiple PDF files into one PDF [stackoverflow](https://stackoverflow.com/a/2507825/1987553)
+
+`pdftk file1.pdf file2.pdf cat output output.pdf`
+
