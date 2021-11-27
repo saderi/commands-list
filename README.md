@@ -1,8 +1,5 @@
 # UFW commands
 
-
-
-
 | Description | command  |
 | ------------ | -------------- |
 | Allow specific Port | `ufw allow 6379`  |
@@ -56,23 +53,23 @@ echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
 
 # System
 
-Delete files older than 5 days
+- Delete files older than 5 days
 
 `find /tmp/* -type f -mtime +5 -exec rm -f {} +`
 
-Delete files older than 5 minutes
+- Delete files older than 5 minutes
 
 `find /tmp/* -type f -mmin +5 -exec rm -f {} +`
 
-chmod all folder to 755
+- chmod all folder to 755
 
 `find /var/www/html -type d -print0 | xargs -0 chmod 755`
 
-chmod all file to 644
+- chmod all file to 644
 
 `find /var/www/html -type f -print0 | xargs -0 chmod 644`
 
-Singel line for loop
+- Singel line for loop
 
 `for i in {a..z}; do YOUR_COMMAND; done`
 
@@ -85,22 +82,21 @@ or
 
 #### Copy Docker images from one host to another without using a repository
 
-Save the Docker image as a tar file:
+- Save the Docker image as a tar file:
 
 `docker save -o TAR_FILE_PATH_AND_NAME IMAGE_NAME:TAG`
 
-Copy your image to a new server and load the image into Docker:
+- Copy your image to a new server and load the image into Docker:
 
 `docker load -i TAR_FILE_PATH_AND_NAME`
 
 
 # ETC
 
-Convert cuttent folder subtitles to UTF8 Encoding
+- Convert cuttent folder subtitles to UTF8 Encoding
 
 `for FILENAME in ./*.srt; do iconv -f cp1256 -t UTF-8 "${FILENAME}" -o "${FILENAME}"; done;`
 
-Merge / convert multiple PDF files into one PDF [stackoverflow](https://stackoverflow.com/a/2507825/1987553)
+- Merge / convert multiple PDF files into one PDF [stackoverflow](https://stackoverflow.com/a/2507825/1987553)
 
 `pdftk file1.pdf file2.pdf cat output output.pdf`
-
