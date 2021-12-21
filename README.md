@@ -50,6 +50,16 @@ echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
 
 `find .  \( -path ./vendor -o -path ./node_modules -o -path ./storage -o -path ./.git \) -prune -o -name '*.php'  -print0 | xargs -0 -n1 php -l > /dev/null`
 
+# MySQL Commands
+
+Size of specified database in MB
+```
+SELECT table_schema ,
+    ROUND(SUM(data_length + index_length) / 1024 / 1024, 1) "DB Size in MB" 
+    FROM information_schema.tables  WHERE table_schema='DB_NAME'
+    GROUP BY table_schema ;
+```
+
 
 # System
 
