@@ -110,3 +110,7 @@ or
 - Merge / convert multiple PDF files into one PDF [stackoverflow](https://stackoverflow.com/a/2507825/1987553)
 
 `pdftk file1.pdf file2.pdf cat output output.pdf`
+
+- Convert larg video to smaller video
+
+`ffmpeg -i inputfile.mp4 -acodec aac  -s 1366x768   inputfile_smaller.mp4`
