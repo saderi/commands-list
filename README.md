@@ -18,11 +18,11 @@
 
 # Connection check
 
-- IP count on port 80 & 443:
+### IP count on port 80 & 443:
 
 `netstat -anp | grep ':80\|:443' | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -n | wc -l`
 
-- Connection count on port 80 & 443:
+### Connection count on port 80 & 443:
 
 `netstat -an | grep ':80\|:443' | wc -l`
 
@@ -40,19 +40,19 @@ echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
 
 # PHP
 
-- Find all php files and syntax check
+### Find all php files and syntax check
 
 `find . -iname "*.php" -print0 | xargs -0 -n1 php -l`
 
 
 
-- Syntax check for laravel project
+### Syntax check for laravel project
 
 `find .  \( -path ./vendor -o -path ./node_modules -o -path ./storage -o -path ./.git \) -prune -o -name '*.php'  -print0 | xargs -0 -n1 php -l > /dev/null`
 
 # MySQL Commands
 
-Size of specified database in MB
+### Size of specified database in MB
 ```
 SELECT table_schema ,
     ROUND(SUM(data_length + index_length) / 1024 / 1024, 1) "DB Size in MB" 
@@ -63,23 +63,23 @@ SELECT table_schema ,
 
 # System
 
-- Delete files older than 5 days
+### Delete files older than 5 days
 
 `find /tmp/* -type f -mtime +5 -exec rm -f {} +`
 
-- Delete files older than 5 minutes
+### Delete files older than 5 minutes
 
 `find /tmp/* -type f -mmin +5 -exec rm -f {} +`
 
-- chmod all folder to 755
+### chmod all folder to 755
 
 `find /var/www/html -type d -print0 | xargs -0 chmod 755`
 
-- chmod all file to 644
+### chmod all file to 644
 
 `find /var/www/html -type f -print0 | xargs -0 chmod 644`
 
-- Singel line for loop
+### Singel line for loop
 
 `for i in {a..z}; do YOUR_COMMAND; done`
 
@@ -92,25 +92,40 @@ or
 
 #### Copy Docker images from one host to another without using a repository
 
-- Save the Docker image as a tar file:
+### Save the Docker image as a tar file:
 
 `docker save -o TAR_FILE_PATH_AND_NAME IMAGE_NAME:TAG`
 
-- Copy your image to a new server and load the image into Docker:
+### Copy your image to a new server and load the image into Docker:
 
 `docker load -i TAR_FILE_PATH_AND_NAME`
 
 
 # ETC
 
-- Convert cuttent folder subtitles to UTF8 Encoding
+### Convert cuttent folder subtitles to UTF8 Encoding
 
 `for FILENAME in ./*.srt; do iconv -f cp1256 -t UTF-8 "${FILENAME}" -o "${FILENAME}"; done;`
 
-- Merge / convert multiple PDF files into one PDF [stackoverflow](https://stackoverflow.com/a/2507825/1987553)
+### Merge / convert multiple PDF files into one PDF [stackoverflow](https://stackoverflow.com/a/2507825/1987553)
 
 `pdftk file1.pdf file2.pdf cat output output.pdf`
 
-- Convert larg video to smaller video
+### Convert larg video to smaller video
 
 `ffmpeg -i inputfile.mp4 -acodec aac  -s 1366x768   inputfile_smaller.mp4`
+
+### breaking large file into small pieces and reassemble them
+#### split
+```
+$ split --verbose -b500M large_2.4GB_file.tar small_600MB_files.tar.
+creating file 'small_600MB_files.tar.aa'
+creating file 'small_600MB_files.tar.ab'
+creating file 'small_600MB_files.tar.ac'
+creating file 'small_600MB_files.tar.ad'
+creating file 'small_600MB_files.tar.ae'
+```
+#### reassemble
+`cat small_600MB_files.tar.a? > large_2.4GB_file.tar`
+
+
