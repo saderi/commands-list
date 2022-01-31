@@ -87,6 +87,10 @@ or
 
 `for((i=1;i<=100;i+=5)); do echo "Hi ${i}"; done`
 
+### Change multiple files extensions in recursive folders
+
+`find . -name '*.xtA' -exec bash -c 'mv "$0" "${0%.xtA}.xtB"' "{}" \;`
+
 
 # Docker
 
