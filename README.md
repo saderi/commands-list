@@ -91,6 +91,9 @@ or
 
 `find . -name '*.xtA' -exec bash -c 'mv "$0" "${0%.xtA}.xtB"' "{}" \;`
 
+### Get files/folders size, include hidden files/folders with `du` command
+`du -sch .[!.]* * |sort -h`
+
 
 # Docker
 
