@@ -91,7 +91,7 @@ or
 
 `find . -name '*.xtA' -exec bash -c 'mv "$0" "${0%.xtA}.xtB"' "{}" \;`
 
-### Get files/folders size, include hidden files/folders with `du` command
+### Get files/folders size, include hidden files/folders with `du` command [ [source](https://askubuntu.com/a/363681) ]
 `du -sch .[!.]* * |sort -h`
 
 
@@ -114,7 +114,7 @@ or
 
 `for FILENAME in ./*.srt; do iconv -f cp1256 -t UTF-8 "${FILENAME}" -o "${FILENAME}"; done;`
 
-### Merge / convert multiple PDF files into one PDF [stackoverflow](https://stackoverflow.com/a/2507825/1987553)
+### Merge / convert multiple PDF files into one PDF [ [source](https://stackoverflow.com/a/2507825/1987553) ]
 
 `pdftk file1.pdf file2.pdf cat output output.pdf`
 
