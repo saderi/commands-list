@@ -1,15 +1,14 @@
 # List:
-* [UFW commands](#ufw_commands)
-* [Connection check](connection_check)
-* [Add Swap Space on Ubuntu 18.04](swap_space_ubuntu)
-* [PHP](php)
-* [MySQL Commands](mysql_commands)
-* [Files](files)
-* [Docker](docker)
-* [GPG Encrypting and decrypting file](gpg_commands)
-* [ETC](etc)
+* [UFW commands](#ufw-commands)
+* [Connection check](#connection-check)
+* [Add Swap Space on Ubuntu 18.04](#add-swap-space-on-ubuntu-1804)
+* [PHP](#php)
+* [MySQL Commands](#mysql-commands)
+* [Files](#files)
+* [Docker](#docker)
+* [GPG Encrypting and decrypting file](#gpg-encrypting-and-decrypting-file)
+* [ETC](#etc)
 
-<a name="ufw_commands"></a>
 # UFW commands
 
 | Description | command  |
@@ -27,7 +26,6 @@
 | Deny all incoming traffic | `ufw default deny incoming` |
 | Allow all incoming traffic | `ufw default allow incoming` |
 
-<a name="connection_check"></a>
 # Connection check
 
 ### IP count on port 80 & 443:
@@ -38,7 +36,6 @@
 
 `netstat -an | grep ':80\|:443' | wc -l`
 
-<a name="swap_space_ubuntu"></a>
 # Add Swap Space on Ubuntu 18.04
 
 ```
@@ -50,7 +47,6 @@ cp /etc/fstab /etc/fstab.bak
 echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
 ```
 
-<a name="php"></a>
 # PHP 
 
 ### Find all php files and syntax check
@@ -74,7 +70,7 @@ SELECT table_schema ,
     GROUP BY table_schema ;
 ```
 
-<a name="files"></a>
+<a id="files"></a>
 # Files
 
 ### Delete files older than 5 days
@@ -155,7 +151,7 @@ or
 
 `ffmpeg -i inputfile.mp4 -acodec aac  -s 1366x768   inputfile_smaller.mp4`
 
-### breaking large file into small pieces and reassemble them
+### Breaking large file into small pieces and reassemble them
 #### split
 ```
 $ split --verbose -b500M large_2.4GB_file.tar small_600MB_files.tar.
