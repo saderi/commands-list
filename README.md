@@ -89,7 +89,7 @@ SELECT table_schema ,
 
 `find /var/www/html -type f -print0 | xargs -0 chmod 644`
 
-### Singel line for loop
+### Single line loop
 
 `for i in {a..z}; do YOUR_COMMAND; done`
 
