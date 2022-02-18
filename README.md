@@ -1,3 +1,15 @@
+# List:
+* [UFW commands](#ufw_commands)
+* [Connection check](connection_check)
+* [Add Swap Space on Ubuntu 18.04](swap_space_ubuntu)
+* [PHP](php)
+* [MySQL Commands](mysql_commands)
+* [Files](files)
+* [Docker](docker)
+* [GPG Encrypting and decrypting file](gpg_commands)
+* [ETC](etc)
+
+<a name="ufw_commands"></a>
 # UFW commands
 
 | Description | command  |
@@ -15,7 +27,7 @@
 | Deny all incoming traffic | `ufw default deny incoming` |
 | Allow all incoming traffic | `ufw default allow incoming` |
 
-
+<a name="connection_check"></a>
 # Connection check
 
 ### IP count on port 80 & 443:
@@ -26,7 +38,7 @@
 
 `netstat -an | grep ':80\|:443' | wc -l`
 
-
+<a name="swap_space_ubuntu"></a>
 # Add Swap Space on Ubuntu 18.04
 
 ```
@@ -38,7 +50,8 @@ cp /etc/fstab /etc/fstab.bak
 echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
 ```
 
-# PHP
+<a name="php"></a>
+# PHP 
 
 ### Find all php files and syntax check
 
@@ -50,6 +63,7 @@ echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
 
 `find .  \( -path ./vendor -o -path ./node_modules -o -path ./storage -o -path ./.git \) -prune -o -name '*.php'  -print0 | xargs -0 -n1 php -l > /dev/null`
 
+<a name="mysql_commands"></a>
 # MySQL Commands
 
 ### Size of specified database in MB
@@ -60,8 +74,8 @@ SELECT table_schema ,
     GROUP BY table_schema ;
 ```
 
-
-# System
+<a name="files"></a>
+# Files
 
 ### Delete files older than 5 days
 
@@ -94,7 +108,7 @@ or
 ### Get files/folders size, include hidden files/folders with `du` command [ [source](https://askubuntu.com/a/363681) ]
 `du -sch .[!.]* * |sort -h`
 
-
+<a name="docker"></a>
 # Docker
 
 #### Copy Docker images from one host to another without using a repository
@@ -107,7 +121,26 @@ or
 
 `docker load -i TAR_FILE_PATH_AND_NAME`
 
+<a name="gpg_commands"></a>
+# GPG Encrypting and decrypting file
 
+### Generate a new keypair
+`gpg --full-generate-key`
+
+### Export the keypair to a file
+`gpg --export -a "EMAIL OR KEY_NAME" > public.key`
+
+### Import public key to your keystore
+`gpg --import someone_public.key`
+
+### Encrypt EXAMPLE.gz File 
+`gpg --output ENCRYPTED_EXAMPLE.gpg --recipient "EMAIL OR KEY_NAME" --armor --always-trust --encrypt EXAMPLE.gz`
+
+### Decrypt EXAMPLE.gz File 
+`gpg --output EXAMPLE.gz --recipient "EMAIL OR KEY_NAME" --decrypt ENCRYPTED_EXAMPLE.gpg`
+
+
+<a name="etc"></a>
 # ETC
 
 ### Convert cuttent folder subtitles to UTF8 Encoding
