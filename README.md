@@ -164,4 +164,11 @@ creating file 'small_600MB_files.tar.ae'
 #### reassemble
 `cat small_600MB_files.tar.a? > large_2.4GB_file.tar`
 
+### Check SSL KEY and CRT files relation 
+If the output of both commands is equal, privet key and ssl certificate are related
+```
+openssl x509 -noout -modulus -in domain.crt.pem | openssl md5
+openssl rsa -noout -modulus -in domain.privet_key.pem | openssl md5
+```
+
 
