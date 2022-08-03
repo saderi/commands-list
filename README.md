@@ -4,9 +4,10 @@
 * [Add Swap Space on Ubuntu 18.04](#add-swap-space-on-ubuntu-1804)
 * [PHP](#php)
 * [MySQL Commands](#mysql-commands)
-* [Files](#files)
+* [Files](#files-tools)
 * [Docker](#docker)
 * [GPG Encrypting and decrypting file](#gpg-encrypting-and-decrypting-file)
+* [HTTPS/SSL](#https-ssl)
 * [ETC](#etc)
 
 # UFW commands
@@ -70,7 +71,7 @@ SELECT table_schema ,
     GROUP BY table_schema ;
 ```
 
-<a id="files"></a>
+<a id="files-tools"></a>
 # Files
 
 ### Delete files older than 5 days
@@ -135,6 +136,31 @@ or
 ### Decrypt EXAMPLE.gz File 
 `gpg --output EXAMPLE.gz --recipient "EMAIL OR KEY_NAME" --decrypt ENCRYPTED_EXAMPLE.gpg`
 
+<a name="https-ssl"></a>
+# HTTPS/SSL 
+
+### Check SSL KEY and CRT files relation 
+If the output of both commands is equal, privet key and ssl certificate are related
+```
+openssl x509 -noout -modulus -in domain.crt.pem | openssl md5
+openssl rsa -noout -modulus -in domain.privet_key.pem | openssl md5
+```
+
+### Extracting the certificate and keys from a .pfx file
+The .pfx file, which is in a PKCS#12 format, contains the SSL certificate (public keys) and the corresponding private keys
+
+Extract the private key (this key is encrypted)
+```
+openssl pkcs12 -in [YOUR_FILE.pfx] -nocerts -out encrypted_private_key.pem
+```
+Extract the certificate
+```
+openssl pkcs12 -in [YOUR_FILE.pfx] -clcerts -nokeys -out certificate.pem
+```
+Decrypt the encrypted private key
+```
+openssl rsa -in encrypted_private_key.pem -out decrypted_private_key.pem
+```
 
 <a name="etc"></a>
 # ETC
@@ -164,11 +190,5 @@ creating file 'small_600MB_files.tar.ae'
 #### reassemble
 `cat small_600MB_files.tar.a? > large_2.4GB_file.tar`
 
-### Check SSL KEY and CRT files relation 
-If the output of both commands is equal, privet key and ssl certificate are related
-```
-openssl x509 -noout -modulus -in domain.crt.pem | openssl md5
-openssl rsa -noout -modulus -in domain.privet_key.pem | openssl md5
-```
 
 
