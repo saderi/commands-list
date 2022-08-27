@@ -1,6 +1,6 @@
 # List:
 * [UFW commands](#ufw-commands)
-* [Connection check](#connection-check)
+* [Port and Connection check](#port-and-connection-check)
 * [Add Swap Space on Ubuntu 18.04](#add-swap-space-on-ubuntu-1804)
 * [PHP](#php)
 * [MySQL Commands](#mysql-commands)
@@ -27,7 +27,7 @@
 | Deny all incoming traffic | `ufw default deny incoming` |
 | Allow all incoming traffic | `ufw default allow incoming` |
 
-# Connection check
+# Port and Connection check
 
 ### IP count on port 80 & 443:
 
@@ -36,6 +36,10 @@
 ### Connection count on port 80 & 443:
 
 `netstat -an | grep ':80\|:443' | wc -l`
+
+### Find Out What Is Using TCP Ports
+
+`netstat -tulpn`
 
 # Add Swap Space on Ubuntu 18.04
 
