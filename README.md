@@ -41,7 +41,7 @@
 
 `netstat -tulpn`
 
-### Check port is open with netcat
+### Checking port with netcat
 
 `nc -vz -w 5 142.250.203.110 443`
 
