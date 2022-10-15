@@ -41,6 +41,10 @@
 
 `netstat -tulpn`
 
+### Check port is open with netcat
+
+`nc -vz -w 5 142.250.203.110 443`
+
 # Add Swap Space on Ubuntu 18.04
 
 ```
