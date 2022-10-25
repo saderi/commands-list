@@ -9,6 +9,7 @@
 * [GPG Encrypting and decrypting file](#gpg-encrypting-and-decrypting-file)
 * [HTTPS/SSL](#https-ssl)
 * [ETC](#etc)
+* [System](#system)
 
 # UFW commands
 
@@ -197,6 +198,20 @@ creating file 'small_600MB_files.tar.ae'
 ```
 #### reassemble
 `cat small_600MB_files.tar.a? > large_2.4GB_file.tar`
+
+<a name="system"></a>
+# System
+
+### Allow non-root user run sudo command without password 
+To allow `deploy` user to use `sudo systemctl` command for nginx service without password add following lines to end of `/etc/sudoers` file
+
+```
+%deploy ALL= NOPASSWD: /usr/bin/systemctl restart nginx.service
+%deploy ALL= NOPASSWD: /usr/bin/systemctl stop nginx.service
+%deploy ALL= NOPASSWD: /usr/bin/systemctl start nginx.service 
+%deploy ALL= NOPASSWD: /usr/bin/systemctl status nginx.service
+```
+
 
 
 
