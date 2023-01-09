@@ -8,6 +8,7 @@
 * [Docker](#docker)
 * [GPG Encrypting and decrypting file](#gpg-encrypting-and-decrypting-file)
 * [HTTPS/SSL](#https-ssl)
+* [Git](#git)
 * [ETC](#etc)
 * [System](#system)
 
@@ -170,6 +171,13 @@ Decrypt the encrypted private key
 ```
 openssl rsa -in encrypted_private_key.pem -out decrypted_private_key.pem
 ```
+
+
+<a name="git"></a>
+# Git
+
+### Change latest commit author
+`git commit --amend --author="YOURNAME <YOUR_EMAIL@GIT_SERVER.COM>" --no-edit`
 
 <a name="etc"></a>
 # ETC
