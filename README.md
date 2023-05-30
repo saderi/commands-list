@@ -47,6 +47,10 @@
 
 `nc -vz -w 5 142.250.203.110 443`
 
+### Find a website’s DNS address
+
+`dig ns saderi.com` OR `dig +short ns saderi.com`
+
 # Add Swap Space on Ubuntu 18.04
 
 ```
