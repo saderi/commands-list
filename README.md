@@ -225,5 +225,8 @@ To allow `deploy` user to use `sudo systemctl` command for nginx service without
 ```
 
 
-
+### Journal Filtering by Time [ [source](https://www.digitalocean.com/community/tutorials/how-to-use-journalctl-to-view-and-manipulate-systemd-logs) ]
+```
+journalctl --since "2023-06-16 08:55" --until "2023-06-16 09:15"
+```
 
