@@ -230,3 +230,13 @@ To allow `deploy` user to use `sudo systemctl` command for nginx service without
 journalctl --since "2023-06-16 08:55" --until "2023-06-16 09:15"
 ```
 
+### Clean up journalctl logs
+Retain only the past two days:
+```
+journalctl --vacuum-time=2d
+```
+
+Retain only the past 500 MB:
+```
+journalctl --vacuum-size=500M
+```
