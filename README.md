@@ -183,6 +183,9 @@ openssl rsa -in encrypted_private_key.pem -out decrypted_private_key.pem
 ### Change latest commit author
 `git commit --amend --author="YOURNAME <YOUR_EMAIL@GIT_SERVER.COM>" --no-edit`
 
+### Git ignore file mode (chmod) 
+`git config core.fileMode false`
+
 <a name="etc"></a>
 # ETC
 
