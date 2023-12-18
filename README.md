@@ -176,6 +176,15 @@ Decrypt the encrypted private key
 openssl rsa -in encrypted_private_key.pem -out decrypted_private_key.pem
 ```
 
+### Get expiration date of a SSL certificate
+```
+cat domain.crt.pem | openssl x509 -noout -dates
+```
+or
+```
+openssl s_client -servername DOMAIN_NAME -connect DOMAIN_NAME:443 2>/dev/null | openssl x509 -noout -dates
+```
+
 
 <a name="git"></a>
 # Git
