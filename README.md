@@ -132,6 +132,9 @@ or
 
 `docker load -i TAR_FILE_PATH_AND_NAME`
 
+### Re-balance swarm tasks when new nodes join or after recovery of a node 
+`for service in $(docker service ls -q); do docker service update --force $service; done`
+
 <a name="gpg_commands"></a>
 # GPG Encrypting and decrypting file
 
