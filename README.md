@@ -198,6 +198,9 @@ openssl s_client -servername DOMAIN_NAME -connect DOMAIN_NAME:443 2>/dev/null | 
 ### Git ignore file mode (chmod) 
 `git config core.fileMode false`
 
+### Empty commit
+`git commit --allow-empty -m "Empty Commit"`
+
 <a name="etc"></a>
 # ETC
 
