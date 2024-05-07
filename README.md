@@ -51,6 +51,19 @@
 
 `dig ns saderi.com` OR `dig +short ns saderi.com`
 
+### Check SMTP connection in command line
+First install swaks (Swiss Army Knife for SMTP)
+```
+swaks --to YOUR_SMTP_SERVER \
+      --from from@YOUR_SMTP_SERVER \
+      --server YOUR_SMTP_SERVER:PORT \
+      --auth LOGIN \
+      --auth-user SMTP_USERNAME \
+      --auth-password "SMTP_PASSWORD" \
+      --tls-optional
+```
+The `--tls-optional` flag is used to allow the connection to proceed even if TLS fails
+
 # Add Swap Space on Ubuntu 18.04
 
 ```
