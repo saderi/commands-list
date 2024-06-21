@@ -11,6 +11,7 @@
 * [Git](#git)
 * [ETC](#etc)
 * [System](#system)
+* [Useful Gist](#gists)
 
 # UFW commands
 
@@ -271,3 +272,8 @@ Retain only the past 500 MB:
 ```
 journalctl --vacuum-size=500M
 ```
+
+<a name="gists"></a>
+# Useful Gist
+
+* [Install make, vim, git and Docker](https://gist.github.com/saderi/4a0af3e424d3429648553f319348ccb0)
