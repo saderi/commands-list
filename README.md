@@ -1,9 +1,14 @@
+# Command & Config Cheat Sheet 🚀
+A handy collection of commands and config snippets I frequently use. Because who has time to remember them all? 🤷‍♂️
+
+
 # List:
 * [UFW commands](#ufw-commands)
 * [Port and Connection check](#port-and-connection-check)
 * [Add Swap Space on Ubuntu 18.04](#add-swap-space-on-ubuntu-1804)
 * [PHP](#php)
 * [MySQL Commands](#mysql-commands)
+* [Nginx](#nginx)
 * [Files](#files-tools)
 * [Docker](#docker)
 * [GPG Encrypting and decrypting file](#gpg-encrypting-and-decrypting-file)
@@ -98,6 +103,36 @@ SELECT table_schema ,
     FROM information_schema.tables  WHERE table_schema='DB_NAME'
     GROUP BY table_schema ;
 ```
+
+<a id="nginx"></a>
+# Nginx
+
+### Certbot for proxy-pass
+```
+server {
+    server_name YOUR_DOMAIN.COM;
+    listen 80;
+
+    location ~ /.well-known/acme-challenge/ {
+        allow all;
+        root /var/www/html;
+    }
+
+    location / {
+        client_max_body_size 15M;
+        proxy_pass http://127.0.0.1:8000; # YOUR Service
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade         $http_upgrade;
+        proxy_set_header Connection      'upgrade';
+        proxy_set_header X-Real-Ip       $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host            $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+```
+
+
 
 <a id="files-tools"></a>
 # Files
