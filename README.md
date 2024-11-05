@@ -312,3 +312,4 @@ journalctl --vacuum-size=500M
 # Useful Gist
 
 * [Install make, vim, git and Docker](https://gist.github.com/saderi/4a0af3e424d3429648553f319348ccb0)
+* [My aliases](https://gist.github.com/saderi/dc9177e6d8cd1560018b751a73cb07b7)
