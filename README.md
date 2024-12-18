@@ -8,6 +8,7 @@ A handy collection of commands and config snippets I frequently use. Because who
 * [Add Swap Space on Ubuntu 18.04](#add-swap-space-on-ubuntu-1804)
 * [PHP](#php)
 * [MySQL Commands](#mysql-commands)
+* [MongoDB](#mongodb)
 * [Nginx](#nginx)
 * [Files](#files-tools)
 * [Docker](#docker)
@@ -103,6 +104,22 @@ SELECT table_schema ,
     FROM information_schema.tables  WHERE table_schema='DB_NAME'
     GROUP BY table_schema ;
 ```
+
+
+<a name="mongodb"></a>
+# MongoDB
+
+### Create new user for database
+```
+use DB_NAME;
+
+db.createUser({
+  user: "DB_USER",
+  pwd: "PASSWORD",
+  roles: [{ role: "readWrite", db: "DB_NAME" }]
+})
+```
+
 
 <a id="nginx"></a>
 # Nginx
