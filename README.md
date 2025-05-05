@@ -201,6 +201,9 @@ or
 ### Re-balance swarm tasks when new nodes join or after recovery of a node 
 `for service in $(docker service ls -q); do docker service update --force $service; done`
 
+### Get Swarm nodes list with Labels
+`docker node ls -q | xargs -n1 docker node inspect --format '{{.ID}} {{.Description.Hostname}} {{range $key, $value := .Spec.Labels}}{{$key}}={{$value}} {{end}}'`
+
 <a name="gpg_commands"></a>
 # GPG Encrypting and decrypting file
 
