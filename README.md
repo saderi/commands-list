@@ -9,6 +9,7 @@ A handy collection of commands and config snippets I frequently use. Because who
 * [PHP](#php)
 * [MySQL Commands](#mysql-commands)
 * [MongoDB](#mongodb)
+* [PostgreSQL](#postgres)
 * [Nginx](#nginx)
 * [Files](#files-tools)
 * [Docker](#docker)
@@ -118,6 +119,29 @@ db.createUser({
   pwd: "PASSWORD",
   roles: [{ role: "readWrite", db: "DB_NAME" }]
 })
+```
+
+
+<a name="postgres"></a>
+# PostgreSQL
+
+### Create a new database and user
+Login to psql console and run the following commands: 
+```bash
+# 1. Create a new database and user in PostgreSQL
+CREATE DATABASE my_new_database;
+CREATE USER my_username WITH PASSWORD 'veruSecureP@ssw0rd!';
+GRANT ALL PRIVILEGES ON DATABASE my_new_database; TO my_username;
+
+# 2. Set the new database as the current database
+\c my_new_database;
+
+# 3. Grant privileges to the new user on the public schema and all existing tables and sequences
+GRANT ALL ON SCHEMA public TO my_username;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO my_username;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO my_username;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO my_username;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON SEQUENCES TO my_username;
 ```
 
 
