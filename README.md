@@ -358,3 +358,4 @@ journalctl --vacuum-size=500M
 * [Install make, vim, git and Docker](https://gist.github.com/saderi/4a0af3e424d3429648553f319348ccb0)
 * [My aliases](https://gist.github.com/saderi/dc9177e6d8cd1560018b751a73cb07b7)
 * [Prometheus Node exporter installer](https://gist.github.com/saderi/ea80dd490badc6ab96603130507e1c97)
+* [install telnet into a alpine docker container](https://gist.github.com/Ryanb58/9e63e186981090d4f2de8ec0ea420e1d)
