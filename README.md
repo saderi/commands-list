@@ -131,7 +131,7 @@ Login to psql console and run the following commands:
 # 1. Create a new database and user in PostgreSQL
 CREATE DATABASE my_new_database;
 CREATE USER my_username WITH PASSWORD 'veruSecureP@ssw0rd!';
-GRANT ALL PRIVILEGES ON DATABASE my_new_database; TO my_username;
+GRANT ALL PRIVILEGES ON DATABASE my_new_database TO my_username;
 
 # 2. Set the new database as the current database
 \c my_new_database;
