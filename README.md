@@ -281,6 +281,14 @@ or
 openssl s_client -servername DOMAIN_NAME -connect DOMAIN_NAME:443 2>/dev/null | openssl x509 -noout -dates
 ```
 
+### Certbot DNS manual verification 
+```
+certbot certonly \
+  --manual \
+  --preferred-challenges dns \
+  -d example.com \
+  -d '*.example.com'
+```
 
 <a name="git"></a>
 # Git
@@ -350,6 +358,12 @@ journalctl --vacuum-time=2d
 Retain only the past 500 MB:
 ```
 journalctl --vacuum-size=500M
+```
+
+### Increment the hard disk size after updating it in Proxmox or AWS EC2
+```
+growpart /dev/sda 2
+resize2fs /dev/sda2
 ```
 
 <a name="gists"></a>
