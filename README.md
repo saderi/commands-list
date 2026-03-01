@@ -13,6 +13,7 @@ A handy collection of commands and config snippets I frequently use. Because who
 * [Nginx](#nginx)
 * [Files](#files-tools)
 * [Docker](#docker)
+* [Kubernetes](#kubernetes)
 * [GPG Encrypting and decrypting file](#gpg-encrypting-and-decrypting-file)
 * [HTTPS/SSL](#https-ssl)
 * [Git](#git)
@@ -227,6 +228,21 @@ or
 
 ### Get Swarm nodes list with Labels
 `docker node ls -q | xargs -n1 docker node inspect --format '{{.ID}} {{.Description.Hostname}} {{range $key, $value := .Spec.Labels}}{{$key}}={{$value}} {{end}}'`
+
+<a name="kubernetes"></a>
+# Kubernetes
+
+### Start Minikube on the VM with a fixed, reachable API endpoint
+
+```
+minikube start --driver=docker \
+  --listen-address=0.0.0.0 \
+  --ports=8443:8443 \
+  --apiserver-port=8443 \
+  --apiserver-ips=<VM_IP> \
+  --embed-certs
+```
+
 
 <a name="gpg_commands"></a>
 # GPG Encrypting and decrypting file
