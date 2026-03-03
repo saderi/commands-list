@@ -130,20 +130,35 @@ db.createUser({
 Login to psql console and run the following commands: 
 ```bash
 # 1. Create a new database and user in PostgreSQL
-CREATE DATABASE my_new_database;
-CREATE USER my_username WITH PASSWORD 'veruSecureP@ssw0rd!';
-GRANT ALL PRIVILEGES ON DATABASE my_new_database TO my_username;
+CREATE DATABASE "my_new_database";
+CREATE USER "my_username" WITH PASSWORD 'veruSecureP@ssw0rd!';
+GRANT ALL PRIVILEGES ON DATABASE "my_new_database" TO "my_username";
 
 # 2. Set the new database as the current database
-\c my_new_database;
+\c "my_new_database";
 
 # 3. Grant privileges to the new user on the public schema and all existing tables and sequences
-GRANT ALL ON SCHEMA public TO my_username;
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO my_username;
-GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO my_username;
-ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO my_username;
-ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON SEQUENCES TO my_username;
+GRANT ALL ON SCHEMA public TO "my_username";
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "my_username";
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO "my_username";
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO "my_username";
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON SEQUENCES TO "my_username";
 ```
+
+### Cleanup database and user
+Login to psql console and run the following commands: 
+```
+ALTER DEFAULT PRIVILEGES IN SCHEMA public REVOKE ALL ON TABLES FROM "my_username";
+ALTER DEFAULT PRIVILEGES IN SCHEMA public REVOKE ALL ON SEQUENCES FROM "my_username";
+REVOKE ALL ON ALL TABLES IN SCHEMA public FROM "my_username";
+REVOKE ALL ON ALL SEQUENCES IN SCHEMA public FROM "my_username";
+REVOKE ALL ON SCHEMA public FROM "my_username";
+REVOKE ALL PRIVILEGES ON DATABASE "my_new_database" FROM "my_username";
+SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = 'my_new_database' AND pid <> pg_backend_pid();
+DROP DATABASE "my_new_database";
+DROP USER "my_username";
+```
+
 
 
 <a id="nginx"></a>
